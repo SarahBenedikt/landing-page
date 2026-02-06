@@ -1,12 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
-/*
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -2627,6 +2621,16 @@ input, select, textarea {
 				border-bottom-left-radius: 3px;
 			}
 
+			/* Client Context (for testimonials) */
+			.features li .client-context {
+				color: rgba(255, 255, 255, 0.6);
+				font-size: 0.85em;
+				font-weight: 400;
+				letter-spacing: 0.15em;
+				margin-top: 1em;
+				font-style: italic;
+			}
+
 			@media screen and (max-width: 980px) {
 
 				.features li {
@@ -3411,7 +3415,6 @@ input, select, textarea {
 			position: absolute;
 			right: 0;
 			top: 0;
-			vertical-align: middle;
 			width: 7em;
 		}
 

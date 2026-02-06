@@ -1,0 +1,509 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>My Freelance Data - Sarah Benedikt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+		<style>
+			.dashboard-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2em;
+				margin-bottom: 3em;
+			}
+			.stat-card {
+				background: rgba(255, 255, 255, 0.05);
+				padding: 2em;
+				border-radius: 8px;
+				text-align: center;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			.stat-card h3 {
+				margin: 0 0 0.5em 0;
+				font-size: 3em;
+				color: #8e44ad;
+			}
+			.stat-card p {
+				margin: 0;
+				font-size: 1em;
+				color: rgba(255, 255, 255, 0.1);
+			}
+			.chart-container {
+				position: relative;
+				height: 400px;
+				margin-bottom: 3em;
+				background: rgba(255, 255, 255, 0.05);
+				padding: 2em;
+				border-radius: 8px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			.chart-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2em;
+				margin-bottom: 3em;
+			}
+			@media screen and (max-width: 980px) {
+				.chart-row {
+					grid-template-columns: 1fr;
+				}
+			}
+			.review-card {
+				background: rgba(255, 255, 255, 0.05);
+				padding: 2em;
+				border-radius: 8px;
+				margin-bottom: 2em;
+				border-left: 4px solid #8e44ad;
+			}
+			.review-card .rating {
+				color: #f39c12;
+				font-size: 1.5em;
+				margin-bottom: 0.5em;
+			}
+			.review-card .review-text {
+				font-style: italic;
+				margin-bottom: 1em;
+				line-height: 1.6;
+			}
+			.review-card .client-info {
+				color: rgba(255, 255, 255, 0.6);
+				font-size: 0.9em;
+			}
+			.section-title {
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+			}
+			.chart-description {
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 0.9em;
+				margin-bottom: 1.5em;
+				line-height: 1.6;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Sarah Benedikt</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="story.html">My Story</a></li>
+											<li><a href="freelance-data.html">Freelance Data</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>My Freelance Data</h2>
+							<p>A data-driven overview of my freelance journey</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<!-- Overview Stats -->
+								<h3 class="section-title">Overview</h3>
+								<div class="dashboard-grid" id="overview-stats">
+									<!-- Stats will be loaded here -->
+								</div>
+
+								<!-- Charts Row -->
+								<div class="chart-row">
+									<div>
+										<h3 class="section-title">Industries I've Worked In</h3>
+										<p class="chart-description">Distribution of projects across different industry sectors, showing where I have the most experience and expertise.</p>
+										<div class="chart-container" style="height: 350px;">
+											<canvas id="industriesChart"></canvas>
+										</div>
+									</div>
+									<div>
+										<h3 class="section-title">Company Sizes</h3>
+										<p class="chart-description">Range of company sizes I've successfully collaborated with, from startups to enterprise organizations.</p>
+										<div class="chart-container" style="height: 350px;">
+											<canvas id="companySizesChart"></canvas>
+										</div>
+									</div>
+								</div>
+
+								<!-- Project Types -->
+								<h3 class="section-title">Project Types Breakdown</h3>
+								<p class="chart-description">Different types of projects completed with average duration, showcasing the breadth of services offered.</p>
+								<div class="chart-container">
+									<canvas id="projectTypesChart"></canvas>
+								</div>
+
+								<!-- Top Reviews -->
+								<h3 class="section-title">Top Client Reviews</h3>
+								<div id="reviews-container">
+									<!-- Reviews will be loaded here -->
+								</div>
+
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/sarah-benedikt-9b6950162/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Sarah Benedikt</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<!-- Dashboard Script -->
+			<script>
+				// Fetch and display data
+				fetch('data/freelance-data.json')
+					.then(response => response.json())
+					.then(data => {
+						// Display overview stats
+						const overviewHTML = `
+							<div class="stat-card">
+								<h3>${data.overview.totalProjects}</h3>
+								<p>Completed Projects</p>
+							</div>
+							<div class="stat-card">
+								<h3>${data.overview.totalClients}</h3>
+								<p>Happy Clients</p>
+							</div>
+							<div class="stat-card">
+								<h3>${data.overview.yearsActive}</h3>
+								<p>Years Active</p>
+							</div>
+							<div class="stat-card">
+								<h3>${data.overview.successRate}%</h3>
+								<p>Success Rate</p>
+							</div>
+						`;
+						document.getElementById('overview-stats').innerHTML = overviewHTML;
+
+						// Display reviews
+						const reviewsHTML = data.topReviews.map(review => `
+							<div class="review-card">
+								<div class="rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+								<div class="review-text">"${review.review}"</div>
+								<div class="client-info">
+									<strong>${review.client}</strong><br>
+									Project: ${review.project}
+								</div>
+							</div>
+						`).join('');
+						document.getElementById('reviews-container').innerHTML = reviewsHTML;
+
+						// Industries Pie Chart
+						const industriesCtx = document.getElementById('industriesChart').getContext('2d');
+						new Chart(industriesCtx, {
+							type: 'doughnut',
+							data: {
+								labels: data.industries.map(i => i.name),
+								datasets: [{
+									label: 'Projects',
+									data: data.industries.map(i => i.projects),
+									backgroundColor: [
+										'rgba(142, 68, 173, 0.8)',
+										'rgba(52, 152, 219, 0.8)',
+										'rgba(46, 204, 113, 0.8)',
+										'rgba(241, 196, 15, 0.8)'
+									],
+									borderColor: [
+										'rgba(142, 68, 173, 1)',
+										'rgba(52, 152, 219, 1)',
+										'rgba(46, 204, 113, 1)',
+										'rgba(241, 196, 15, 1)'
+									],
+									borderWidth: 2
+								}]
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								plugins: {
+									title: {
+										display: true,
+										text: 'Project Distribution by Industry',
+										color: 'rgba(255, 255, 255, 0.9)',
+										font: {
+											size: 16,
+											weight: 'bold'
+										},
+										padding: {
+											bottom: 20
+										}
+									},
+									legend: {
+										position: 'bottom',
+										labels: {
+											color: 'rgba(255, 255, 255, 0.8)',
+											padding: 15,
+											font: {
+												size: 12
+											},
+											generateLabels: function(chart) {
+												const data = chart.data;
+												if (data.labels.length && data.datasets.length) {
+													return data.labels.map((label, i) => {
+														const value = data.datasets[0].data[i];
+														const percentage = ((value / data.datasets[0].data.reduce((a, b) => a + b, 0)) * 100).toFixed(0);
+														return {
+															text: `${label}: ${value} (${percentage}%)`,
+															fillStyle: data.datasets[0].backgroundColor[i],
+															hidden: false,
+															index: i
+														};
+													});
+												}
+												return [];
+											}
+										}
+									},
+									tooltip: {
+										callbacks: {
+											label: function(context) {
+												const label = context.label || '';
+												const value = context.parsed || 0;
+												const total = context.dataset.data.reduce((a, b) => a + b, 0);
+												const percentage = ((value / total) * 100).toFixed(1);
+												return `${label}: ${value} projects (${percentage}%)`;
+											}
+										}
+									}
+								}
+							}
+						});
+
+						// Company Sizes Bar Chart
+						const companySizesCtx = document.getElementById('companySizesChart').getContext('2d');
+						new Chart(companySizesCtx, {
+							type: 'bar',
+							data: {
+								labels: data.companySizes.map(c => c.size),
+								datasets: [{
+									label: 'Number of Clients',
+									data: data.companySizes.map(c => c.count),
+									backgroundColor: 'rgba(142, 68, 173, 0.8)',
+									borderColor: 'rgba(142, 68, 173, 1)',
+									borderWidth: 2,
+									borderRadius: 5
+								}]
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								scales: {
+									y: {
+										beginAtZero: true,
+										title: {
+											display: true,
+											text: 'Number of Clients',
+											color: 'rgba(255, 255, 255, 0.9)',
+											font: {
+												size: 13,
+												weight: 'bold'
+											}
+										},
+										ticks: {
+											color: 'rgba(255, 255, 255, 0.8)',
+											stepSize: 1,
+											font: {
+												size: 11
+											}
+										},
+										grid: {
+											color: 'rgba(255, 255, 255, 0.1)'
+										}
+									},
+									x: {
+										title: {
+											display: true,
+											text: 'Company Size (Employees)',
+											color: 'rgba(255, 255, 255, 0.9)',
+											font: {
+												size: 13,
+												weight: 'bold'
+											}
+										},
+										ticks: {
+											color: 'rgba(255, 255, 255, 0.8)',
+											font: {
+												size: 10
+											}
+										},
+										grid: {
+											display: false
+										}
+									}
+								},
+								plugins: {
+									title: {
+										display: true,
+										text: 'Client Distribution by Company Size',
+										color: 'rgba(255, 255, 255, 0.9)',
+										font: {
+											size: 16,
+											weight: 'bold'
+										},
+										padding: {
+											bottom: 20
+										}
+									},
+									legend: {
+										display: false
+									},
+									tooltip: {
+										callbacks: {
+											label: function(context) {
+												const total = context.dataset.data.reduce((a, b) => a + b, 0);
+												const percentage = ((context.parsed.y / total) * 100).toFixed(1);
+												return `${context.parsed.y} clients (${percentage}%)`;
+											}
+										}
+									}
+								}
+							}
+						});
+
+						// Project Types Chart
+						const projectTypesCtx = document.getElementById('projectTypesChart').getContext('2d');
+						new Chart(projectTypesCtx, {
+							type: 'bar',
+							data: {
+								labels: data.projectTypes.map(p => p.type),
+								datasets: [{
+									label: 'Number of Projects',
+									data: data.projectTypes.map(p => p.count),
+									backgroundColor: [
+										'rgba(142, 68, 173, 0.8)',
+										'rgba(52, 152, 219, 0.8)',
+										'rgba(46, 204, 113, 0.8)',
+										'rgba(241, 196, 15, 0.8)'
+									],
+									borderColor: [
+										'rgba(142, 68, 173, 1)',
+										'rgba(52, 152, 219, 1)',
+										'rgba(46, 204, 113, 1)',
+										'rgba(241, 196, 15, 1)'
+									],
+									borderWidth: 2,
+									borderRadius: 5
+								}]
+							},
+							options: {
+								responsive: true,
+								maintainAspectRatio: false,
+								indexAxis: 'y',
+								scales: {
+									x: {
+										beginAtZero: true,
+										title: {
+											display: true,
+											text: 'Number of Projects Completed',
+											color: 'rgba(255, 255, 255, 0.9)',
+											font: {
+												size: 13,
+												weight: 'bold'
+											}
+										},
+										ticks: {
+											color: 'rgba(255, 255, 255, 0.8)',
+											stepSize: 2,
+											font: {
+												size: 11
+											}
+										},
+										grid: {
+											color: 'rgba(255, 255, 255, 0.1)'
+										}
+									},
+									y: {
+										title: {
+											display: true,
+											text: 'Project Type',
+											color: 'rgba(255, 255, 255, 0.9)',
+											font: {
+												size: 13,
+												weight: 'bold'
+											}
+										},
+										ticks: {
+											color: 'rgba(255, 255, 255, 0.8)',
+											font: {
+												size: 11
+											}
+										},
+										grid: {
+											display: false
+										}
+									}
+								},
+								plugins: {
+									title: {
+										display: true,
+										text: 'Projects by Service Type',
+										color: 'rgba(255, 255, 255, 0.9)',
+										font: {
+											size: 16,
+											weight: 'bold'
+										},
+										padding: {
+											bottom: 20
+										}
+									},
+									legend: {
+										display: false
+									},
+									tooltip: {
+										callbacks: {
+											title: function(context) {
+												return context[0].label;
+											},
+											label: function(context) {
+												const avgDuration = data.projectTypes[context.dataIndex].avgDuration;
+												return [
+													`Projects: ${context.parsed.x}`,
+													`Average Duration: ${avgDuration}`
+												];
+											}
+										}
+									}
+								}
+							}
+						});
+					})
+					.catch(error => {
+						console.error('Error loading freelance data:', error);
+						document.getElementById('overview-stats').innerHTML = '<p>Error loading data. Please try again later.</p>';
+					});
+			</script>
+
+	</body>
+</html>
