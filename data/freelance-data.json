@@ -1,30 +1,21 @@
 {
   "overview": {
-    "totalProjects": 24,
-    "totalClients": 18,
-    "yearsActive": 3,
+    "totalProjects": 12,
+    "yearsActive": 16,
     "successRate": 100
   },
   "industries": [
     {
       "name": "SaaS & Technology",
-      "projects": 12,
-      "percentage": 50
+      "percentage": 30
     },
     {
-      "name": "E-commerce",
-      "projects": 5,
-      "percentage": 21
+      "name": "Logistics",
+      "percentage": 60
     },
     {
-      "name": "Healthcare",
-      "projects": 4,
-      "percentage": 17
-    },
-    {
-      "name": "Finance",
-      "projects": 3,
-      "percentage": 12
+      "name": "Art, Design & Product Innovation",
+      "percentage": 10
     }
   ],
   "companySizes": [

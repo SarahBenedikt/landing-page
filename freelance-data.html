@@ -24,12 +24,10 @@
 			.stat-card h3 {
 				margin: 0 0 0.5em 0;
 				font-size: 3em;
-				color: #8e44ad;
 			}
 			.stat-card p {
 				margin: 0;
 				font-size: 1em;
-				color: rgba(255, 255, 255, 0.1);
 			}
 			.chart-container {
 				position: relative;
@@ -78,7 +76,6 @@
 				border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 			}
 			.chart-description {
-				color: rgba(255, 255, 255, 0.7);
 				font-size: 0.9em;
 				margin-bottom: 1.5em;
 				line-height: 1.6;
@@ -123,9 +120,8 @@
 								<div class="dashboard-grid" id="overview-stats">
 									<!-- Stats will be loaded here -->
 								</div>
-
-								<!-- Charts Row -->
-								<div class="chart-row">
+								<hr />
+								<!-- Charts Section -->
 									<div>
 										<h3 class="section-title">Industries I've Worked In</h3>
 										<p class="chart-description">Distribution of projects across different industry sectors, showing where I have the most experience and expertise.</p>
@@ -133,6 +129,7 @@
 											<canvas id="industriesChart"></canvas>
 										</div>
 									</div>
+									<hr/>
 									<div>
 										<h3 class="section-title">Company Sizes</h3>
 										<p class="chart-description">Range of company sizes I've successfully collaborated with, from startups to enterprise organizations.</p>
@@ -140,7 +137,7 @@
 											<canvas id="companySizesChart"></canvas>
 										</div>
 									</div>
-								</div>
+									<hr/>
 
 								<!-- Project Types -->
 								<h3 class="section-title">Project Types Breakdown</h3>
@@ -190,15 +187,11 @@
 						const overviewHTML = `
 							<div class="stat-card">
 								<h3>${data.overview.totalProjects}</h3>
-								<p>Completed Projects</p>
-							</div>
-							<div class="stat-card">
-								<h3>${data.overview.totalClients}</h3>
-								<p>Happy Clients</p>
+								<p>Completed Projects 2025</p>
 							</div>
 							<div class="stat-card">
 								<h3>${data.overview.yearsActive}</h3>
-								<p>Years Active</p>
+								<p>Years Of Experience</p>
 							</div>
 							<div class="stat-card">
 								<h3>${data.overview.successRate}%</h3>
@@ -227,8 +220,8 @@
 							data: {
 								labels: data.industries.map(i => i.name),
 								datasets: [{
-									label: 'Projects',
-									data: data.industries.map(i => i.projects),
+									label: 'Percentage',
+									data: data.industries.map(i => i.percentage),
 									backgroundColor: [
 										'rgba(142, 68, 173, 0.8)',
 										'rgba(52, 152, 219, 0.8)',
@@ -275,7 +268,7 @@
 														const value = data.datasets[0].data[i];
 														const percentage = ((value / data.datasets[0].data.reduce((a, b) => a + b, 0)) * 100).toFixed(0);
 														return {
-															text: `${label}: ${value} (${percentage}%)`,
+															text: `${label}: ${percentage}%`,
 															fillStyle: data.datasets[0].backgroundColor[i],
 															hidden: false,
 															index: i
