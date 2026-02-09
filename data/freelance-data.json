@@ -21,19 +21,19 @@
   "companySizes": [
     {
       "size": "1-10 employees",
-      "count": 8
-    },
-    {
-      "size": "11-50 employees",
-      "count": 6
-    },
-    {
-      "size": "51-200 employees",
       "count": 3
     },
     {
+      "size": "11-50 employees",
+      "count": 2
+    },
+    {
+      "size": "51-200 employees",
+      "count": 0
+    },
+    {
       "size": "200+ employees",
-      "count": 1
+      "count": 15
     }
   ],
   "topReviews": [
