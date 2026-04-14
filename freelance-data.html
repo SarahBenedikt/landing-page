@@ -100,6 +100,8 @@
 											<li><a href="index.html">Home</a></li>
 											<li><a href="story.html">My Story</a></li>
 											<li><a href="freelance-data.html">Freelance Data</a></li>
+											<li><a href="workflow-automation.html">Workflow Automation</a></li>
+											<li><a href="process-mapping.html">Process Mapping</a></li>
 										</ul>
 									</div>
 								</li>
@@ -132,8 +134,8 @@
 									</div>
 									<hr/>
 									<div>
-										<h3 class="section-title">Company Sizes</h3>
-										<p class="chart-description">Range of company sizes I've successfully collaborated with, from startups to enterprise organizations.</p>
+										<h3 class="section-title">Company Types</h3>
+										<p class="chart-description">I bring experience from both ends of the spectrum — large enterprise organizations and agile startups & scale-ups.</p>
 										<div class="chart-container" style="height: 450px;">
 											<canvas id="companySizesChart"></canvas>
 										</div>
@@ -188,7 +190,7 @@
 						const overviewHTML = `
 							<div class="stat-card">
 								<h3>${data.overview.totalProjects}</h3>
-								<p>Completed Projects 2025</p>
+								<p>Projects Delivered</p>
 							</div>
 							<div class="stat-card">
 								<h3>${data.overview.yearsActive}</h3>
@@ -297,73 +299,33 @@
 							}
 						});
 
-						// Company Sizes Stacked Bar Chart
+						// Company Sizes Doughnut Chart
 						const companySizesCtx = document.getElementById('companySizesChart').getContext('2d');
-						const sizeColors = [
-							{ bg: 'rgba(142, 68, 173, 0.8)', border: 'rgba(142, 68, 173, 1)' },
-							{ bg: 'rgba(52, 152, 219, 0.8)', border: 'rgba(52, 152, 219, 1)' },
-							{ bg: 'rgba(46, 204, 113, 0.8)', border: 'rgba(46, 204, 113, 1)' },
-							{ bg: 'rgba(241, 196, 15, 0.8)', border: 'rgba(241, 196, 15, 1)' }
-						];
-						const totalClients = data.companySizes.reduce((sum, c) => sum + c.count, 0);
 						new Chart(companySizesCtx, {
-							type: 'bar',
+							type: 'doughnut',
 							data: {
-								labels: ['Years of Experience'],
-								datasets: data.companySizes.map((c, i) => ({
-									label: c.size,
-									data: [c.count],
-									backgroundColor: sizeColors[i].bg,
-									borderColor: sizeColors[i].border,
-									borderWidth: 2,
-									borderRadius: 0
-								}))
+								labels: data.companySizes.map(c => c.size),
+								datasets: [{
+									label: 'Clients',
+									data: data.companySizes.map(c => c.count),
+									backgroundColor: [
+										'rgba(142, 68, 173, 0.8)',
+										'rgba(52, 152, 219, 0.8)'
+									],
+									borderColor: [
+										'rgba(142, 68, 173, 1)',
+										'rgba(52, 152, 219, 1)'
+									],
+									borderWidth: 2
+								}]
 							},
 							options: {
 								responsive: true,
 								maintainAspectRatio: false,
-								indexAxis: 'y',
-								scales: {
-									x: {
-										stacked: true,
-										beginAtZero: true,
-										title: {
-											display: true,
-											text: 'Years',
-											color: '#2E3842',
-											font: {
-												size: 13,
-												weight: 'bold'
-											}
-										},
-										ticks: {
-											color: 'rgba(255, 255, 255, 0.8)',
-											stepSize: 2,
-											font: {
-												size: 11
-											}
-										},
-										grid: {
-											color: 'rgba(255, 255, 255, 0.1)'
-										}
-									},
-									y: {
-										stacked: true,
-										ticks: {
-											color: 'rgba(255, 255, 255, 0.8)',
-											font: {
-												size: 12
-											}
-										},
-										grid: {
-											display: false
-										}
-									}
-								},
 								plugins: {
 									title: {
 										display: true,
-										text: 'Client Distribution by Company Size',
+										text: 'Client Experience by Company Type',
 										color: 'rgba(255, 255, 255, 0.9)',
 										font: {
 											size: 16,
@@ -374,14 +336,40 @@
 										}
 									},
 									legend: {
-										display: false
+										position: 'right',
+										align: 'center',
+										labels: {
+											color: 'rgba(255, 255, 255, 0.8)',
+											padding: 20,
+											font: {
+												size: 13
+											},
+											boxWidth: 15,
+											generateLabels: function(chart) {
+												const d = chart.data;
+												if (d.labels.length && d.datasets.length) {
+													const total = d.datasets[0].data.reduce((a, b) => a + b, 0);
+													return d.labels.map((label, i) => {
+														const value = d.datasets[0].data[i];
+														const percentage = ((value / total) * 100).toFixed(0);
+														return {
+															text: `${label}: ${percentage}%`,
+															fillStyle: d.datasets[0].backgroundColor[i],
+															hidden: false,
+															index: i
+														};
+													});
+												}
+												return [];
+											}
+										}
 									},
 									tooltip: {
 										callbacks: {
 											label: function(context) {
-												const value = context.parsed.x;
-												const percentage = ((value / totalClients) * 100).toFixed(1);
-												return `${context.dataset.label}: ${value} years (${percentage}%)`;
+												const total = context.dataset.data.reduce((a, b) => a + b, 0);
+												const percentage = ((context.parsed / total) * 100).toFixed(0);
+												return `${context.label}: ${context.parsed} clients (${percentage}%)`;
 											}
 										}
 									}

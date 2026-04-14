@@ -6,82 +6,78 @@
   },
   "industries": [
     {
-      "name": "SaaS & Technology",
-      "percentage": 30
+      "name": "Logistics & Supply Chain",
+      "percentage": 35
     },
     {
-      "name": "Logistics",
-      "percentage": 60
+      "name": "SaaS & Data",
+      "percentage": 25
     },
     {
-      "name": "Art, Design & Product Innovation",
-      "percentage": 10
+      "name": "Education & RevOps",
+      "percentage": 25
+    },
+    {
+      "name": "Art, Design & Entrepreneurship",
+      "percentage": 15
     }
   ],
   "companySizes": [
     {
-      "size": "1-10 employees",
-      "count": 3
-    },
-    {
-      "size": "11-50 employees",
+      "size": "Enterprise & Corporate",
       "count": 2
     },
     {
-      "size": "51-200 employees",
-      "count": 0
-    },
-    {
-      "size": "200+ employees",
-      "count": 15
+      "size": "Startups & Scale-ups",
+      "count": 3
     }
   ],
   "topReviews": [
     {
-      "rating": 5.0,
+      "rating": 5,
       "review": "She helped me set foundations on all types of SOPs, task planning, and onboarding new employees. I will work with Sarah again in a heartbeat.",
       "client": "CEO, SaaS Startup",
       "project": "Process Documentation & Team Onboarding"
     },
     {
-      "rating": 5.0,
+      "rating": 5,
       "review": "Articulate, intelligent, and learns any technology very fast.",
-      "client": "CTO, Technology Company",
+      "client": "CEO, Technology Company",
       "project": "Technical Process Optimization"
     },
     {
-      "rating": 5.0,
+      "rating": 5,
       "review": "Exceptional process, systems, and strategic support. Her proactive, accountable, and skillful approach exceeded expectations.",
       "client": "CEO, SaaS Startup",
       "project": "Systems & Strategy Consulting"
     },
     {
-      "rating": 5.0,
+      "rating": 5,
       "review": "A collaborative, joyful interest in success in ways I never imagined. Exceptional in experience, inventiveness, and work ethic.",
-      "client": "Founder, Tech Startup",
+      "client": "Founder, Startup",
       "project": "Business Process Redesign"
     }
   ],
   "projectTypes": [
     {
       "type": "Process Mapping",
-      "count": 15,
+      "count": 8,
       "avgDuration": "4 weeks"
     },
     {
       "type": "Data Analysis",
-      "count": 12,
+      "count": 7,
       "avgDuration": "3 weeks"
     },
     {
-      "type": "Workflow Automation",
-      "count": 8,
-      "avgDuration": "6 weeks"
+      "type": "Strategy Consulting",
+      "count": 5,
+      "avgDuration": "2 weeks"
     },
     {
-      "type": "Strategy Consulting",
-      "count": 10,
-      "avgDuration": "2 weeks"
+      "type": "Workflow Automation",
+      "count": 4,
+      "avgDuration": "6 weeks"
     }
   ]
 }

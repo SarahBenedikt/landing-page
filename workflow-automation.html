@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Workflow Automation - Sarah Benedikt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Custom styles for Automation Page */
+			.code-container {
+				background: #1e242b;
+				border-radius: 8px;
+				padding: 1.5em;
+				margin: 2em 0;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				overflow-x: auto;
+				position: relative;
+			}
+			.code-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 1em;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				padding-bottom: 0.5em;
+			}
+			.code-header .filename {
+				font-family: monospace;
+				font-size: 0.9em;
+				color: #8e44ad;
+			}
+			pre code {
+				font-family: "Courier New", Courier, monospace;
+				font-size: 0.9em;
+				color: #d1d1d1;
+				line-height: 1.5;
+			}
+			.keyword { color: #c678dd; }
+			.function { color: #61afef; }
+			.string { color: #98c379; }
+			.comment { color: #5c6370; font-style: italic; }
+
+			.impact-box {
+				background: rgba(142, 68, 173, 0.1);
+				border-left: 4px solid #8e44ad;
+				padding: 2em;
+				margin: 2em 0;
+			}
+			.impact-box h4 {
+				margin-bottom: 1em;
+				color: #8e44ad;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+			}
+
+			.roi-calculator {
+				background: rgba(255, 255, 255, 0.05);
+				padding: 2.5em;
+				border-radius: 8px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				margin-top: 3em;
+			}
+			.roi-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2em;
+			}
+			@media screen and (max-width: 736px) {
+				.roi-grid { grid-template-columns: 1fr; }
+			}
+			.roi-result {
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				background: rgba(142, 68, 173, 0.2);
+				border-radius: 8px;
+				padding: 1em;
+			}
+			.roi-result .amount {
+				font-size: 3em;
+				font-weight: 800;
+				color: #fff;
+				margin: 0.2em 0;
+			}
+			
+			.tag {
+				display: inline-block;
+				background: rgba(255,255,255,0.1);
+				padding: 0.2em 0.8em;
+				border-radius: 4px;
+				font-size: 0.8em;
+				margin-right: 0.5em;
+				margin-bottom: 0.5em;
+				border: 1px solid rgba(255,255,255,0.2);
+			}
+			
+			/* Fix for number inputs in style5 */
+			input[type="number"] {
+				background-color: rgba(0, 0, 0, 0.075) !important;
+				color: #2E3842 !important;
+				border: solid 1px rgba(0, 0, 0, 0.15) !important;
+			}
+			.wrapper.style5 label {
+				color: #2E3842;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Sarah Benedikt</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="story.html">My Story</a></li>
+											<li><a href="freelance-data.html">Freelance Data</a></li>
+											<li><a href="workflow-automation.html">Workflow Automation</a></li>
+											<li><a href="process-mapping.html">Process Mapping</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Workflow Automation</h2>
+							<p>Scaling your impact by eliminating the mechanical</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<section>
+									<h3>Systems that work, so you don't have to.</h3>
+									<p>I don’t spend my time on manual invoice entry, complex tax calculations, or tracking daily spendings. Instead, I’ve built an automated infrastructure where I simply upload my invoices and bills, and the system handles the rest. My freelance data is always ready for analysis, in real-time.</p>
+									<p>By automating the mechanical parts of my business, I reclaim the hours needed to focus on what truly matters: <strong>delivering high-quality services and strategic value to my customers.</strong></p>
+									
+									<hr />
+
+									<h3>The "Universal Data Processor"</h3>
+									<p>This script is a core part of my operations. It is designed to ingest any invoice or payment PDF, extract critical financial data using pattern recognition, and automatically update my central database while handling deduplication and tax logic.</p>
+
+									<div class="code-container">
+										<div class="code-header">
+											<span class="filename">automation/process_invoices.py</span>
+											<span class="tag">Python 3.10+</span>
+										</div>
+<pre><code><span class="keyword">def</span> <span class="function">extract_invoice_data</span>(pdf_path):
+    <span class="comment">"""Anonymized engine to parse financial PDFs into structured data."""</span>
+    <span class="keyword">with</span> pdfplumber.open(pdf_path) <span class="keyword">as</span> pdf:
+        content = <span class="string">" "</span>.join([page.extract_text() <span class="keyword">for</span> page <span class="keyword">in</span> pdf.pages])
+
+    <span class="comment"># Extracting key financial markers (Date, Amount, Tax)</span>
+    date = find_pattern(content, <span class="string">r"(\d{4}-\d{2}-\d{2}|\w+ \d{1,2}, \d{4})"</span>)
+    amount = find_currency_value(content, <span class="string">r"Total|Amount Due|Paid"</span>)
+    tax = calculate_tax_component(amount, rate=<span class="string">0.19</span>)
+
+    <span class="keyword">return</span> {
+        <span class="string">"entry_date"</span>: normalize_date(date),
+        <span class="string">"gross_amount"</span>: amount,
+        <span class="string">"net_amount"</span>: amount - tax,
+        <span class="string">"tax_bracket"</span>: <span class="string">"Standard"</span>,
+        <span class="string">"automation_status"</span>: <span class="string">"Verified"</span>
+    }
+
+<span class="keyword">def</span> <span class="function">update_ledger</span>(record):
+    <span class="comment">"""Prevents double-entry and syncs with the master database."""</span>
+    <span class="keyword">if</span> <span class="keyword">not</span> is_duplicate(record):
+        append_to_freelance_data(record)
+        trigger_analysis_refresh()</code></pre>
+									</div>
+
+									<div class="impact-box">
+										<h4>Why This Matters</h4>
+										<p>This script eliminates the "admin tax" on my time. It ensures that my financial records are 100% accurate without a single minute of manual typing. For a client, this means they are hiring a consultant who spends 100% of their billable time on <strong>strategy and execution</strong>, not on their own paperwork.</p>
+									</div>
+
+									<hr />
+
+									<h3>What is your time worth?</h3>
+									<p>Most business owners are losing 10-15 hours a month to tasks that can be handled by a $20/month software subscription or a one-time custom script.</p>
+
+									<div class="roi-calculator">
+										<div class="roi-grid">
+											<div class="roi-inputs">
+												<div class="row gtr-uniform">
+													<div class="col-12">
+														<label for="hours">Hours spent per week on manual tasks:</label>
+														<input type="number" id="hours" value="5" oninput="calculateROI()">
+													</div>
+													<div class="col-12">
+														<label for="rate">Your hourly rate ($):</label>
+														<input type="number" id="rate" value="100" oninput="calculateROI()">
+													</div>
+												</div>
+											</div>
+											<div class="roi-result">
+												<p>Potential Annual Savings</p>
+												<span class="amount" id="roi-amount">$26,000</span>
+												<p>Reclaimed for high-value strategy</p>
+											</div>
+										</div>
+									</div>
+
+									<script>
+										function calculateROI() {
+											const hours = document.getElementById('hours').value || 0;
+											const rate = document.getElementById('rate').value || 0;
+											const annualSavings = hours * rate * 52;
+											document.getElementById('roi-amount').innerText = '$' + annualSavings.toLocaleString();
+										}
+									</script>
+
+								</section>
+
+								<section style="text-align: center; margin-top: 4em;">
+									<h3>Ready to reclaim your time?</h3>
+									<p>Show me your messiest process or spreadsheet. I'll show you the code that can handle it.</p>
+									<ul class="actions special">
+										<li><a href="mailto:benediktsarah@gmail.com" class="button primary">Get a Free Audit</a></li>
+										<li><a href="index.html" class="button">Back to Home</a></li>
+									</ul>
+								</section>
+
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/sarah-benedikt-9b6950162/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Sarah Benedikt</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
