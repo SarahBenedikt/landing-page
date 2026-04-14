@@ -49,27 +49,6 @@
 					grid-template-columns: 1fr;
 				}
 			}
-			.review-card {
-				background: rgba(255, 255, 255, 0.05);
-				padding: 2em;
-				border-radius: 8px;
-				margin-bottom: 2em;
-				border-left: 4px solid #3a6897;
-			}
-			.review-card .rating {
-				color: #c9a84c;
-				font-size: 1.5em;
-				margin-bottom: 0.5em;
-			}
-			.review-card .review-text {
-				font-style: italic;
-				margin-bottom: 1em;
-				line-height: 1.6;
-			}
-			.review-card .client-info {
-				color: rgba(255, 255, 255, 0.6);
-				font-size: 0.9em;
-			}
 			.section-title {
 				margin-bottom: 0.5em;
 				padding-bottom: 1em;
@@ -149,11 +128,6 @@
 									<canvas id="projectTypesChart"></canvas>
 								</div>
 
-								<!-- Top Reviews -->
-								<h3 class="section-title">Top Client Reviews</h3>
-								<div id="reviews-container">
-									<!-- Reviews will be loaded here -->
-								</div>
 
 							</div>
 						</section>
@@ -202,19 +176,6 @@
 							</div>
 						`;
 						document.getElementById('overview-stats').innerHTML = overviewHTML;
-
-						// Display reviews
-						const reviewsHTML = data.topReviews.map(review => `
-							<div class="review-card">
-								<div class="rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
-								<div class="review-text">"${review.review}"</div>
-								<div class="client-info">
-									<strong>${review.client}</strong><br>
-									Project: ${review.project}
-								</div>
-							</div>
-						`).join('');
-						document.getElementById('reviews-container').innerHTML = reviewsHTML;
 
 						// Industries Pie Chart
 						const industriesCtx = document.getElementById('industriesChart').getContext('2d');

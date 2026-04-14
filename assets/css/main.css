@@ -3579,13 +3579,29 @@ input, select, textarea {
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
 		justify-content: center;
+		-moz-align-items: flex-start;
+		-webkit-align-items: flex-start;
+		-ms-align-items: flex-start;
+		align-items: flex-start;
 		cursor: default;
 		height: 100vh;
 		min-height: 35em;
 		overflow: hidden;
+		padding-left: 8%;
 		position: relative;
-		text-align: center;
+		text-align: left;
 	}
+
+		#banner .inner {
+			max-width: 52%;
+		}
+
+		#banner .actions.special {
+			-moz-justify-content: flex-start;
+			-webkit-justify-content: flex-start;
+			-ms-justify-content: flex-start;
+			justify-content: flex-start;
+		}
 
 		#banner h2 {
 			-moz-transform: scale(1);
@@ -3713,7 +3729,23 @@ input, select, textarea {
 				padding: 7em 3em 5em 3em ;
 				height: auto;
 				min-height: 0;
+				text-align: center;
+				-moz-align-items: center;
+				-webkit-align-items: center;
+				-ms-align-items: center;
+				align-items: center;
 			}
+
+				#banner .inner {
+					max-width: 100%;
+				}
+
+				#banner .actions.special {
+					-moz-justify-content: center;
+					-webkit-justify-content: center;
+					-ms-justify-content: center;
+					justify-content: center;
+				}
 
 				#banner h2 {
 					font-size: 1.25em;
@@ -3816,16 +3848,16 @@ input, select, textarea {
 /* Main */
 
 	#main > header {
-		padding: 12em 0 10em 0 ;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		padding: 12em 0 10em 8% ;
+		background-image: -moz-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
 		background-attachment: fixed;
-		background-position: center center;
+		background-position: 65% center;
 		background-repeat: no-repeat;
 		background-size: cover;
-		text-align: center;
+		text-align: left;
 	}
 
 		#main > header h2 {
@@ -3847,7 +3879,7 @@ input, select, textarea {
 		@media screen and (max-width: 1680px) {
 
 			#main > header {
-				padding: 10em 0 8em 0 ;
+				padding: 10em 0 8em 8% ;
 			}
 
 		}
@@ -3855,7 +3887,7 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			#main > header {
-				padding: 8em 3em 6em 3em ;
+				padding: 8em 3em 6em 8% ;
 			}
 
 		}
@@ -3863,7 +3895,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#main > header {
-				padding: 10em 3em 8em 3em ;
+				padding: 10em 3em 8em 8% ;
 			}
 
 		}
@@ -3872,6 +3904,7 @@ input, select, textarea {
 
 			#main > header {
 				padding: 5em 3em 3em 3em ;
+				text-align: center;
 			}
 
 				#main > header h2 {
@@ -3967,12 +4000,12 @@ input, select, textarea {
 /* Landing */
 
 	body.landing #page-wrapper {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
 		background-attachment: fixed;
-		background-position: center center;
+		background-position: 65% center;
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding-top: 0;
@@ -3988,11 +4021,11 @@ input, select, textarea {
 
 	body.is-mobile.landing #banner,
 	body.is-mobile.landing .wrapper.style4 {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-position: center center;
+		background-image: -moz-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(left, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-image: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 85%), url("../../images/banner.jpg");
+		background-position: 65% center;
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
