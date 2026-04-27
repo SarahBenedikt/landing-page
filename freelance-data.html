@@ -49,6 +49,11 @@
 					grid-template-columns: 1fr;
 				}
 			}
+			@media screen and (max-width: 736px) {
+				.chart-container {
+					height: 520px !important;
+				}
+			}
 			.section-title {
 				margin-bottom: 0.5em;
 				padding-bottom: 1em;
@@ -204,11 +209,18 @@
 							options: {
 								responsive: true,
 								maintainAspectRatio: false,
+								onResize: function(chart, size) {
+									const pos = size.width <= 736 ? 'bottom' : 'right';
+									if (chart.options.plugins.legend.position !== pos) {
+										chart.options.plugins.legend.position = pos;
+										chart.update('none');
+									}
+								},
 								plugins: {
 									title: {
 										display: true,
 										text: 'Project Distribution by Industry',
-										color: 'rgba(255, 255, 255, 0.9)',
+										color: '#2c2c2e',
 										font: {
 											size: 16,
 											weight: 'bold'
@@ -218,10 +230,10 @@
 										}
 									},
 									legend: {
-										position: 'right',
+										position: window.innerWidth <= 736 ? 'bottom' : 'right',
 										align: 'center',
 										labels: {
-											color: 'rgba(255, 255, 255, 0.8)',
+											color: '#6b7280',
 											padding: 20,
 											font: {
 												size: 13
@@ -283,11 +295,18 @@
 							options: {
 								responsive: true,
 								maintainAspectRatio: false,
+								onResize: function(chart, size) {
+									const pos = size.width <= 736 ? 'bottom' : 'right';
+									if (chart.options.plugins.legend.position !== pos) {
+										chart.options.plugins.legend.position = pos;
+										chart.update('none');
+									}
+								},
 								plugins: {
 									title: {
 										display: true,
 										text: 'Client Experience by Company Type',
-										color: 'rgba(255, 255, 255, 0.9)',
+										color: '#2c2c2e',
 										font: {
 											size: 16,
 											weight: 'bold'
@@ -297,10 +316,10 @@
 										}
 									},
 									legend: {
-										position: 'right',
+										position: window.innerWidth <= 736 ? 'bottom' : 'right',
 										align: 'center',
 										labels: {
-											color: 'rgba(255, 255, 255, 0.8)',
+											color: '#6b7280',
 											padding: 20,
 											font: {
 												size: 13
@@ -378,21 +397,21 @@
 										title: {
 											display: true,
 											text: 'Number of Projects',
-											color: 'rgba(255, 255, 255, 0.8)',
+											color: '#6b7280',
 											font: {
 												size: 14,
 												weight: 'bold'
 											}
 										},
 										ticks: {
-											color: 'rgba(255, 255, 255, 0.8)',
+											color: '#6b7280',
 											stepSize: 2,
 											font: {
 												size: 12
 											}
 										},
 										grid: {
-											color: 'rgba(255, 255, 255, 0.1)'
+											color: 'rgba(0, 0, 0, 0.08)'
 										}
 									},
 									y: {
@@ -400,7 +419,7 @@
 											display: false
 										},
 										ticks: {
-											color: 'rgba(255, 255, 255, 0.8)',
+											color: '#6b7280',
 											font: {
 												size: 12
 											}
@@ -414,7 +433,7 @@
 									title: {
 										display: true,
 										text: 'Projects by Service Type',
-										color: 'rgba(255, 255, 255, 0.9)',
+										color: '#2c2c2e',
 										font: {
 											size: 16,
 											weight: 'bold'
